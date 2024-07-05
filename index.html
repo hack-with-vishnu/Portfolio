@@ -403,28 +403,35 @@
 
 
             <!-- contact form -->
-            <form method="post" id="submit-form" class="contact-form col-md-10 col-lg-8 m-auto">
+            <form method="post" id="submit-form" name="form1" class="contact-form col-md-10 col-lg-8 m-auto">
                 <div class="form-row">
 
                     <div class="form-group col-sm-6">
-                        <input name="name" type="text" size="50" class="form-control" id="name" placeholder="Your Name" required
-                       pattern="^[A-Za-z]+(\s+[A-Za-z]+)*$" title="Name should only contain letters and spaces, and should not be empty or only spaces.">
+                        <input name="name" type="text" size="50" class="form-control" id="name" placeholder="Your Name" onkeyup="validateName()" >
+                        <span id="name-error"></span>
                     </div>
 
                     <div class="form-group col-sm-6">
-                        <input name="email" type="email" class="form-control" placeholder="Enter Email" required>
+                        <input name="email" type="email" class="form-control" id="mail" placeholder="Enter Email" onkeyup="validateEmail()">
+                        <span id="email-error"></span>
+                        
                     </div>
-                    <div class="form-group col-sm-12">
-                        <textarea name="message" id="comment" rows="6" class="form-control"
-                            placeholder="Write Something"  required
-                            pattern="^[A-Za-z0-9!@#$%^&*()_+\-=\[\]{}|;:',.<>\/? ]+$"
-                            title="Should only contain letters, numbers, spaces, and common symbols. Should not be empty or only spaces." ></textarea>
+                    
+        <div class="form-group col-sm-12">
+            <textarea name="message" rows="6" class="form-control" id="comment" onkeyup="validateMessage()"></textarea>
+            <span id="message-error"></span>
+        </div>
+                        
+
                     </div>
                     <div class="form-group col-sm-12 mt-3">
-                        <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
+                        <input type="submit"  value="Send Message" class="btn btn-outline-primary rounde" onclick="return validateForm()" >
+                        <span id="submit-error"></span>
+                       
                     </div>
                 </div>
-            </form>
+           
+     </form>
         </div><!-- end of container -->
     </section><!-- end of contact section -->
 
